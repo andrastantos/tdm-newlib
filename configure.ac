@@ -1130,6 +1130,9 @@ case "${target}" in
   moxie-*-*)
     noconfigdirs="$noconfigdirs"
     ;;
+  tdm-*-*)
+    noconfigdirs="$noconfigdirs gdbserver gprof"
+    ;;
   h8300*-*-*)
     noconfigdirs="$noconfigdirs target-libgloss"
     ;;
