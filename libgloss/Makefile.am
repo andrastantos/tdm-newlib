@@ -179,6 +179,9 @@ endif
 if CONFIG_SPARC_LEON
 include sparc_leon/Makefile.inc
 endif
+if CONFIG_TDM
+include tdm/Makefile.inc
+endif
 if CONFIG_TIC6X
 include tic6x/Makefile.inc
 endif

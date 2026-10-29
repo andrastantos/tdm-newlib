@@ -662,6 +662,8 @@ CONFIG_V850_FALSE
 CONFIG_V850_TRUE
 CONFIG_TIC6X_FALSE
 CONFIG_TIC6X_TRUE
+CONFIG_TDM_FALSE
+CONFIG_TDM_TRUE
 CONFIG_SPARC_LEON_FALSE
 CONFIG_SPARC_LEON_TRUE
 CONFIG_SPARC_FALSE
@@ -2943,6 +2945,9 @@ case "${target}" in
   moxie-*-*)
 	config_moxie=true
 	;;
+  tdm-*-*)
+	config_tdm=true
+	;;
   microblaze*-*-*)
 	config_microblaze=true
 	;;
@@ -3271,6 +3276,14 @@ fi
 else
   CONFIG_SPARC_LEON_TRUE='#'
   CONFIG_SPARC_LEON_FALSE=
+fi
+
+   if test x$config_tdm = xtrue; then
+  CONFIG_TDM_TRUE=
+  CONFIG_TDM_FALSE='#'
+else
+  CONFIG_TDM_TRUE='#'
+  CONFIG_TDM_FALSE=
 fi
 
    if test x$config_tic6x = xtrue; then
@@ -5949,6 +5962,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${CONFIG_SPARC_LEON_TRUE}" && test -z "${CONFIG_SPARC_LEON_FALSE}"; then
   as_fn_error $? "conditional \"CONFIG_SPARC_LEON\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${CONFIG_TDM_TRUE}" && test -z "${CONFIG_TDM_FALSE}"; then
+  as_fn_error $? "conditional \"CONFIG_TDM\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${CONFIG_TIC6X_TRUE}" && test -z "${CONFIG_TIC6X_FALSE}"; then

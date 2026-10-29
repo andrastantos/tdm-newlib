@@ -84,7 +84,7 @@ case "${target_optspace}:${host}" in
   yes:*)
     newlib_cflags="${newlib_cflags} -Os"
     ;;
-  :m32r-* | :d10v-* | :d30v-* | :avr-* | :m32c-* | :msp430*-* | :nds32* | :pru-* | :rl78-* )
+  :m32r-* | :d10v-* | :d30v-* | :avr-* | :m32c-* | :msp430*-* | :nds32* | :pru-* | :rl78-* | :tdm-* )
     newlib_cflags="${newlib_cflags} -Os"
     ;;
   no:* | :*)
@@ -378,6 +378,12 @@ case "${host_cpu}" in
 	;;
   z8k)
 	machine_dir=z8k
+	;;
+  tdm)
+	machine_dir=tdm
+	newlib_cflags="${newlib_cflags} -DPREFER_SIZE_OVER_SPEED -DSMALL_MEMORY"
+	newlib_cflags="${newlib_cflags} -ffunction-sections -fdata-sections"
+	default_newlib_nano_malloc="yes"
 	;;
   spu)
 	stdio_dir=
@@ -864,6 +870,9 @@ newlib_cflags="${newlib_cflags} -DCLOCK_PROVIDED -DMALLOC_PROVIDED -DEXIT_PROVID
 	  *)
 		newlib_cflags="${newlib_cflags} -DTARGET_PTR_SIZE=64" ;;
 	esac
+	;;
+  tdm-*-*)
+	syscall_dir=syscalls
 	;;
   tic6x*)
 	syscall_dir=

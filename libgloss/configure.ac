@@ -159,6 +159,9 @@ case "${target}" in
   moxie-*-*)
 	config_moxie=true
 	;;
+  tdm-*-*)
+	config_tdm=true
+	;;
   microblaze*-*-*)
 	config_microblaze=true
 	;;
@@ -228,7 +231,7 @@ m4_foreach_w([SUBDIR], [
   aarch64 arc arc64 arm bfin cr16 csky d30v epiphany fr30 frv ft32 i386 i960 iq2000
   libnosys lm32
   m32r mcore microblaze mn10200 mn10300 moxie msp430
-  nds32 nios2 or1k pru riscv rl78 rx sparc sparc_leon tic6x v850 visium
+  nds32 nios2 or1k pru riscv rl78 rx sparc sparc_leon tdm tic6x v850 visium
   wince xstormy16 xtensa
 ], [dnl
   AM_CONDITIONAL([CONFIG_]m4_toupper(SUBDIR), [test x$config_]SUBDIR = xtrue)

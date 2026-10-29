@@ -145,6 +145,9 @@ endif
 if HAVE_LIBC_MACHINE_SPU
 include %D%/spu/Makefile.inc
 endif
+if HAVE_LIBC_MACHINE_TDM
+include %D%/tdm/Makefile.inc
+endif
 if HAVE_LIBC_MACHINE_TIC4X
 include %D%/tic4x/Makefile.inc
 endif

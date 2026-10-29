@@ -388,6 +388,12 @@ _BEGIN_STD_C
 #endif
 #endif
 
+#ifdef __tdm__
+/* $mr6, $mr19-$mr31, SP and the return address.  */
+#define _JBLEN 16
+#define _JBTYPE unsigned short
+#endif
+
 #ifdef __RL78__
 /* Three banks of registers, SP, CS, ES, PC */
 #define _JBLEN (8*3+8)

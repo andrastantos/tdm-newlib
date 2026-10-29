@@ -461,6 +461,11 @@
 #define __SMALL_BITFIELDS	/* 16 Bit INT */
 #endif
 
+#ifdef __tdm__
+#define __IEEE_LITTLE_ENDIAN
+#define __SMALL_BITFIELDS	/* 16 Bit INT */
+#endif
+
 #ifdef __PRU__
 #define __IEEE_LITTLE_ENDIAN
 #endif

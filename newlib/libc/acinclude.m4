@@ -57,7 +57,7 @@ m4_foreach_w([MACHINE], [
   powerpc pru
   riscv rl78 rx
   sh sparc spu
-  tic4x tic6x tic80
+  tdm tic4x tic6x tic80
   v850 visium
   w65
   x86_64 xc16x xstormy16 xtensa
