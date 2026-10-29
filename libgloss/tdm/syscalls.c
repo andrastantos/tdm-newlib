@@ -173,8 +173,11 @@ _sbrk (ptrdiff_t incr)
 
   if (brk == NULL)
     brk = _end;
-  /* Leave some room for the stack to grow.  */
-  if (incr > (char *) __builtin_stack_address () - 256 - brk)
+  /* Leave some room for the stack to grow.  The room can be more than
+     PTRDIFF_MAX octets, so compare as unsigned.  */
+  if (incr > 0
+      && (size_t) incr > (size_t) ((char *) __builtin_stack_address ()
+				   - 256 - brk))
     {
       errno = ENOMEM;
       return (void *) -1;
